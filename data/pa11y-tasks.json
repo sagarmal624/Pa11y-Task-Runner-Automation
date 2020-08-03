@@ -2,17 +2,17 @@
     "urls": [
         {
             "name": "Products",
-            "url": "https://www.fwd.co.th/en/products/",
+            "url": "",
             "standard": "WCAG2AA"
         },
         {
             "name": "PDP-Prakan",
-            "url": "https://www.fwd.co.th/en/products/accident/prakan-kon-kla-max/",
+            "url": "",
             "standard": "WCAG2AA"
         },
         {
             "name": "About-Us",
-            "url": "https://www.fwd.co.th/en/about-us/",
+            "url": "",
             "standard": "WCAG2AA"
         }
     ]
