@@ -1,58 +1,62 @@
 {
-  "name": "pa11y-dashboard",
-  "version": "3.1.0",
-  "private": true,
-  "description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
-  "keywords": [
-    "accessibility",
-    "analysis",
-    "report"
-  ],
-  "author": "Team Pa11y",
-  "contributors": [
-    "Perry Harlock (http://www.phwebs.co.uk/)",
-    "Rowan Manning (http://rowanmanning.com/)"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pa11y/dashboard.git"
-  },
-  "homepage": "https://github.com/pa11y/dashboard",
-  "bugs": "https://github.com/pa11y/dashboard/issues",
-  "license": "GPL-3.0",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=6"
-  },
-  "dependencies": {
-    "axios": "^0.19.2",
-    "body-parser": "~1.19.0",
-    "compression": "~1.7.4",
-    "csv-parser": "^2.3.3",
-    "express": "~4.17.1",
-    "express-hbs": "~2.1.2",
-    "http-headers": "~3.0.2",
-    "kleur": "^4.0.2",
-    "moment": "~2.24.0",
-    "mongodb": "^3.5.9",
-    "mongodb-server": "^1.0.0",
-    "pa11y-webservice": "~3.1.2",
-    "pa11y-webservice-client-node": "~2.0.0",
-    "underscore": "~1.9.1"
-  },
-  "devDependencies": {
-    "bower": "^1.8.8",
-    "cheerio": "^1.0.0-rc.3",
-    "eslint": "^6.8.0",
-    "less": "^3.11.1",
-    "mocha": "^7.1.1",
-    "pa11y-lint-config": "^1.2.1",
-    "proclaim": "^3.6.0",
-    "request": "^2.88.2",
-    "uglify-js": "^3.9.1"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "test": "make ci"
-  }
+	"name": "pa11y-dashboard",
+	"version": "3.1.0",
+	"private": true,
+	"description": "Pa11y Dashboard is a visual web interface to the Pa11y accessibility reporter",
+	"keywords": [
+		"accessibility",
+		"analysis",
+		"report"
+	],
+	"author": "Team Pa11y",
+	"contributors": [
+		"Perry Harlock (http://www.phwebs.co.uk/)",
+		"Rowan Manning (http://rowanmanning.com/)"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pa11y/dashboard.git"
+	},
+	"homepage": "https://github.com/pa11y/dashboard",
+	"bugs": "https://github.com/pa11y/dashboard/issues",
+	"license": "GPL-3.0",
+	"engines": {
+		"node": ">=8",
+		"npm": ">=6"
+	},
+	"dependencies": {
+		"axios": "^0.19.2",
+		"body-parser": "~1.19.0",
+		"compression": "~1.7.4",
+		"csv-parser": "^2.3.3",
+		"dotenv": "^8.2.0",
+		"express": "~4.17.1",
+		"express-hbs": "~2.1.2",
+		"http-headers": "~3.0.2",
+		"kleur": "^4.0.2",
+		"moment": "~2.24.0",
+		"mongodb": "^3.5.9",
+		"mongodb-server": "^1.0.0",
+		"pa11y-webservice": "~3.1.2",
+		"pa11y-webservice-client-node": "~2.0.0",
+		"underscore": "~1.9.1"
+	},
+	"devDependencies": {
+		"bower": "^1.8.8",
+		"cheerio": "^1.0.0-rc.3",
+		"cross-env": "^7.0.2",
+		"eslint": "^6.8.0",
+		"less": "^3.11.1",
+		"mocha": "^7.1.1",
+		"pa11y-lint-config": "^1.2.1",
+		"proclaim": "^3.6.0",
+		"request": "^2.88.2",
+		"uglify-js": "^3.9.1"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"pa11y:th": "cross-env-shell MARKET=TH node pa11y-import.js",
+		"pa11y:hk": "cross-env-shell MARKET=HK node pa11y-import.js",
+		"pa11y:id": "cross-env-shell MARKET=ID node pa11y-import.js"
+	}
 }
