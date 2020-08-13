@@ -54,9 +54,6 @@
 		"uglify-js": "^3.9.1"
 	},
 	"scripts": {
-		"start": "node index.js",
-		"pa11y:th": "cross-env-shell MARKET=TH node pa11y-import.js",
-		"pa11y:hk": "cross-env-shell MARKET=HK node pa11y-import.js",
-		"pa11y:id": "cross-env-shell MARKET=ID node pa11y-import.js"
+		"start": "node index.js"
 	}
 }

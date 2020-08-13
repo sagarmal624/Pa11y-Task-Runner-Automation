@@ -1,3 +1,4 @@
+const request = require('request');
 var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 const fs = require('fs');
@@ -6,9 +7,8 @@ const createClient = require('pa11y-webservice-client-node');
 const config = require('./config');
 const client = createClient(`http://${config.webservice.host}:${config.webservice.port}/`);
 require('dotenv').config();
-getAllTaskFromDB();
 
-function getAllTaskFromDB() {
+function getAllTaskFromDB(jsonUrl) {
 	MongoClient.connect(config.webservice.database, function(err, db) {
 		if (err) {
 			throw err;
@@ -19,35 +19,36 @@ function getAllTaskFromDB() {
 		if (cursor) {
 			cursor.each(function(err, item) {
 				if (item == null) {
-					loadJsonFile(dbTasks);
+					loadJsonFile(jsonUrl, dbTasks);
 					db.close();
 				} else {
 					dbTasks.push(item);
 				}
 			});
 		}
-
 	});
 }
 
-function loadJsonFile(dbTasks) {
-	fs.readFile(`./data/${process.env.MARKET}/pa11y-tasks.json`, (err, data) => {
-		if (err) {
-			throw err;
+function loadJsonFile(jsonUrl, dbTasks) {
+	let options = {json: true};
+	request(jsonUrl, options, (error, res, body) => {
+		if (error) {
+			return console.log(error);
 		}
-		let taskCreate = JSON.parse(data);
-		var arr = taskCreate.urls;
-		arr.forEach(element => {
-			if (dbTasks) {
-				if (!isTaskExistInDB(dbTasks, element)) {
+		if (!error && res.statusCode == 200) {
+			const arr = body.urls;
+			arr.forEach(element => {
+				if (dbTasks) {
+					if (!isTaskExistInDB(dbTasks, element)) {
+						createTask(client, element);
+					}
+				} else {
 					createTask(client, element);
 				}
-			} else {
-				createTask(client, element);
-			}
-		});
+			});
+		}
+		;
 	});
-
 }
 
 function isTaskExistInDB(dbTasks, element) {
@@ -90,3 +91,5 @@ function runPallyReport(task) {
 			console.log(error);
 		});
 }
+
+module.exports = {getAllTaskFromDB: getAllTaskFromDB};
