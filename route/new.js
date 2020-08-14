@@ -17,11 +17,14 @@
 const getStandards = require('../data/standards');
 const httpHeaders = require('http-headers');
 const getAllTaskFromDB = require('../pa11y-import').getAllTaskFromDB;
+const data = require('../data/pa11y-tasks.json');
 
 module.exports = route;
 
-// Route definition
 function route(app) {
+	app.express.get('/get/data', (request, response) => {
+		response.send(data);
+	});
 
 	app.express.get('/run-pally', (request, response) => {
 
@@ -37,7 +40,7 @@ function route(app) {
 		});
 	});
 	app.express.post('/trigger-pally-report', (request, response) => {
-		const url=request.body.name;
+		const url = request.body.name;
 		getAllTaskFromDB(url);
 		const standards = getStandards().map(standard => {
 			if (standard.title === 'WCAG2AA') {
