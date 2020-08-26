@@ -33,7 +33,12 @@ if (fs.existsSync(jsonPath)) {
 			database: env('WEBSERVICE_DATABASE', 'mongodb://192.168.99.100:27017/pa11y-webservice'),
 			host: env('WEBSERVICE_HOST', '0.0.0.0'),
 			port: Number(env('WEBSERVICE_PORT', '3000')),
-			cron: env('WEBSERVICE_CRON', false)
+			cron: env('WEBSERVICE_CRON', false),
+			'chromeLaunchConfig': {
+				'ignoreDefaultArgs': [
+					'--disable-extensions'
+				]
+			}
 		})
 	};
 }
