@@ -123,7 +123,7 @@ function initApp(config, callback) {
 		response.render('500');
 	});
 
-	app.server.listen(config.port, error => {
+	app.server.listen(process.env.PORT || config.port, error => {
 		const address = app.server.address();
 		app.address = `http://${address.address}:${address.port}`;
 		callback(error, app);
