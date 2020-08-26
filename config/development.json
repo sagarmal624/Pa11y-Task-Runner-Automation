@@ -3,7 +3,7 @@
 	"noindex": true,
 	"readonly": false,
 	"webservice": {
-	  "database": "mongodb://192.168.99.100:27017/pa11y-webservice",
+	  "database": "mongodb://fwd-mongo:kYwgVhHn7IhevohBYvBIsXqRLKYUBVLHpjdvX62qlPEgzS8eRr5FuKECMsMpKjTn9CDzKo2zNr4db84wbjv4Yw==@fwd-mongo.mongo.cosmos.azure.com:10255/th-pa11y-webservice?ssl=true&appName=@fwd-mongo@",
 		"host": "0.0.0.0",
 		"port": 3000,
 		"cron": "0 30 0 * * *"

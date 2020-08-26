@@ -1,0 +1,10 @@
+version: '3'
+services:
+  docker-mongodb:
+    image: mongo:4.2.8
+  docker-pally-dashboard:
+    image: pally-dashboard:latest
+    depends_on:
+       - docker-mongodb
+    ports:
+       - 4000:4000

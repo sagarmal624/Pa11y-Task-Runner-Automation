@@ -1,0 +1,8 @@
+
+
+# Generated npm files
+npm-debug.log
+
+# JetBrains IDE
+.idea
+node_modules

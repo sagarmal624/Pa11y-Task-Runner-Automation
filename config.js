@@ -15,7 +15,7 @@
 'use strict';
 
 const fs = require('fs');
-const environment = (process.env.NODE_ENV || 'development');
+const environment = 'development';
 const jsonPath = `./config/${environment}.json`;
 const jsPath = `./config/${environment}.js`;
 
