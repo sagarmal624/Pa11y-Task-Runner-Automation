@@ -5,6 +5,7 @@
   "chromeLaunchConfig": {
 	"executablePath": "./node_modules/puppeteer/.local-chromium/win64-686378/chrome-win/chrome.exe"
   },
+
   "webservice": {
 	"database": "mongodb://fwd-mongo-db:XsROG4H7ipckvDXbivpC5C5X2xa0lcjClLdn5Sqjbr11zYfpeZEwrsbMZRTmMByYpIX1Y31TKDpYetW4M8kZZQ==@fwd-mongo-db.documents.azure.com:10255/pa11y-webservice?ssl=true",
 	"host": "0.0.0.0",
