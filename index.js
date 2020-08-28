@@ -15,7 +15,7 @@
 'use strict';
 
 const kleur = require('kleur');
-const config = require('./config');
+let config = require('./config');
 
 process.on('SIGINT', () => {
 	console.log('\nGracefully shutting down from SIGINT (Ctrl-C)');
@@ -43,6 +43,7 @@ require('./app')(config, (error, app) => {
 
 	// Start the webservice if required
 	if (typeof config.webservice === 'object') {
+		config.webservice.database=process.env.WEBSITES_WEBSERVICE_DATABASE || config.webservice.database;
 		require('pa11y-webservice')(config.webservice, (error, webservice) => {
 			if (error) {
 				console.error(error.stack);

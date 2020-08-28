@@ -9,7 +9,7 @@ const client = createClient(`http://${config.webservice.host}:${config.webservic
 require('dotenv').config();
 
 function getAllTaskFromDB(jsonUrl) {
-	MongoClient.connect(config.webservice.database, function(err, db) {
+	MongoClient.connect(process.env.WEBSITES_WEBSERVICE_DATABASE || config.webservice.database, function(err, db) {
 		if (err) {
 			throw err;
 		}
