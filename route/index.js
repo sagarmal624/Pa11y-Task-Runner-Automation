@@ -15,16 +15,20 @@
 'use strict';
 
 const presentTask = require('../view/presenter/task');
-
+const url = require('url');
 module.exports = route;
 
 // Route definition
 function route(app) {
 	app.express.get('/', (request, response, next) => {
+		const queryObject = url.parse(request.url,true).query;
+		global.globalString = queryObject.entity?queryObject.entity:global.globalString;
+
 		app.webservice.tasks.get({lastres: true}, (error, tasks) => {
 			if (error) {
 				return next(error);
 			}
+			tasks=tasks.filter(task => task.headers.type==globalString);
 			response.render('index', {
 				tasks: tasks.map(presentTask),
 				deleted: (typeof request.query.deleted !== 'undefined'),

@@ -38,10 +38,14 @@ Add a new URL
 		<div class="row">
 			<div class="col-md-8 col-sm-8 col-xs-10">
 				<label class="control-label" for="new-task-name">URL</label>
-				<input class="form-control" id="new-task-name" type="text" required placeholder="E.g. JSON File" name="name"/>
+				<input class="form-control" id="new-task-name" type="text"  required placeholder="E.g. JSON File" name="name"/>
 			</div>
 		</div>
 	</div>
 	<button type="submit" class="btn btn-success">Generate Report<span class="glyphicon glyphicon-signal"></span></button>
-
+	<script>
+		function changeHandler(){
+			alert(localStorage.getItem("entity"));
+		}
+	</script>
 </form>

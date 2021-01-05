@@ -1,37 +1,17 @@
 {
   "urls": [
+
 	{
-	  "name": "Products-101",
-	  "url": "https://www.fwd.co.th/en/products/",
+	  "name": "TH-Products",
+	  "url": "https://www.fwd.co.th/th/products/",
 	  "standard": "WCAG2AA",
 	  "ignore": [
 		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145",
 		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18",
 		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145"
-	  ]
-	},
-	{
-	  "name": "PDP-Prakan-102",
-	  "url": "https://www.fwd.co.th/en/products/accident/prakan-kon-kla-max/",
-	  "standard": "WCAG2AA",
-	  "ignore": [
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145"
-	  ]
-	},
-	{
-	  "name": "About-Us-103",
-	  "url": "https://www.fwd.co.th/en/about-us/",
-	  "standard": "WCAG2AA",
-	  "ignore": [
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
-		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145"
+		"WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail"
 	  ]
 	}
+
   ]
 }

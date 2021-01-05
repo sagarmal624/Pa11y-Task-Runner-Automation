@@ -7,13 +7,17 @@ const createClient = require('pa11y-webservice-client-node');
 const config = require('./config');
 const client = createClient(`http://${config.webservice.host}:${config.webservice.port}/`);
 require('dotenv').config();
+require('events').EventEmitter.defaultMaxListeners = 500;
 
 function getAllTaskFromDB(jsonUrl) {
-	MongoClient.connect(process.env.WEBSITES_WEBSERVICE_DATABASE || config.webservice.database, function(err, db) {
+	MongoClient.connect(config.webservice.database, {
+		useUnifiedTopology: true,
+		useNewUrlParser: true
+	}, function(err, db) {
 		if (err) {
 			throw err;
 		}
-		var dbo = db.db('pa11y-webservice');
+		var dbo = db.db('pally-webservice');
 		var dbTasks = [];
 		var cursor = dbo.collection('tasks').find();
 		if (cursor) {
@@ -64,11 +68,13 @@ function isTaskExistInDB(dbTasks, element) {
 }
 
 function createTask(client, taskPayload) {
+	console.log(globalString);
 	client.tasks.create({
 		name: taskPayload.name,
 		url: taskPayload.url,
 		standard: taskPayload.standard,
-		timeout: 60000,
+		timeout: 80000,
+		headers: {type: globalString},
 		ignore: taskPayload.ignore
 	}, (error, task) => {
 		if (error) {

@@ -39,7 +39,8 @@
 		"mongodb-server": "^1.0.0",
 		"pa11y-webservice": "~3.1.2",
 		"pa11y-webservice-client-node": "~2.0.0",
-		"underscore": "~1.9.1"
+		"underscore": "~1.9.1",
+		"url": "^0.11.0"
 	},
 	"devDependencies": {
 		"bower": "^1.8.8",

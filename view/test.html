@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Pally Dashboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+	<!-- Google Fonts -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+	<!-- Bootstrap core CSS -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Material Design Bootstrap -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+	<!-- JQuery -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+</head>
+<body>
+
+<!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+	<a class="navbar-brand" href="#"> <img src="https://fwdpallyconfig.blob.core.windows.net/json/FWD.jpg" class="rounded-circle z-depth-0"
+										   alt="avatar image" height="35"></a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-targee
+			t="#navbarSupportedContent-555"
+			aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+		<ul class="navbar-nav mr-auto list">
+
+		</ul>
+	</div>
+</nav>
+<div>
+	Selected Pally Dashboard For : <span id="market-span">ID</span>
+</div>
+<div id="container-box">
+</div>
+
+<script>
+	var markets = ['TH', 'HK', 'ID', 'GO', 'JP'];
+
+	function drawNavBar() {
+		markets.forEach(navFunction);
+	}
+
+	drawNavBar();
+
+	function navFunction(item, index) {
+		var listLtem = '<li id="' + item + '" class="nav-item"><a class="nav-link" href="#" onclick="changeDashboard(\'' + item + '\')" >' + item + '</a></li>';
+		$('.list').append(listLtem);
+	}
+
+	function changeDashboard(market) {
+		$('#market-span').html(market);
+		var url = 'http://localhost:4000?entity=' + market;
+		$('#container-box').html('<iframe src="' + url + '" id="pally-iframe" width="100%" height="1000" title="pally Dashboard"></iframe>');
+	}
+
+	var displayFirstItem = markets[0];
+	$('#market-span').html(displayFirstItem);
+	$('#' + displayFirstItem).find('a').trigger('click');
+
+</script>
+</body>
+</html>

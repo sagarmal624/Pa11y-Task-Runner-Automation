@@ -40,6 +40,7 @@ function route(app) {
 		});
 	});
 	app.express.post('/trigger-pally-report', (request, response) => {
+		console.log(request);
 		const url = request.body.name;
 		getAllTaskFromDB(url);
 		const standards = getStandards().map(standard => {
@@ -92,9 +93,9 @@ function route(app) {
 			timeout: request.body.timeout || undefined,
 			wait: request.body.wait || undefined,
 			actions: parsedActions,
+			headers: {type: globalString},
 			username: request.body.username || undefined,
 			password: request.body.password || undefined,
-			headers: parsedHeaders,
 			hideElements: request.body.hideElements || undefined
 		};
 
